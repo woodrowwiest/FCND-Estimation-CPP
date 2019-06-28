@@ -321,11 +321,19 @@ I was really holding my breath when we brought in our control code and tuning pa
 
 This course has taught me many things, but most of all it gives me a view into my shortcomings and raises my awareness to the areas I can improve my skills.  I look forward to revisiting all of these projects to hone my skills and move forward.
 
+## Useful Resources ##
+
+[Estimation for Quadrotors](https://www.overleaf.com/read/vymfngphcccj)
+[The Unscented Kalman Filter for Nonlinear Estimation](https://www.seas.harvard.edu/courses/cs281/papers/unscented.pdf)
+[A New Extension of the Kalman Filter to Nonlinear Systems](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.5.2891&rep=rep1&type=pdf)
+[The Scaled Unscented Transformation](https://www.cs.unc.edu/~welch/kalman/media/pdf/ACC02-IEEE1357.PDF)
+
+
 ## Acknowledgements ##
 
 Thanks:
  - to [Khan Academy](https://www.khanacademy.org) for actually teaching me the math and physics that we were supposed to know for these projects. 
- - to Fotokite for the initial development of the project code and simulator.
+ - to [Fotokite](https://fotokite.com/) for the initial development of the project code and simulator.
  - to [Udacity](https://www.udacity.com/) for putting together this riveting course.  I'll look past the headaches this time... ;)
 
 [Return To Top](#estimation-project)
