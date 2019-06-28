@@ -201,7 +201,23 @@ RbgPrime(1,1) = sinPhi  * sinTheta * cosPsi - cosPhi * sinPsi;
 RbgPrime(1,2) = cosPhi  * sinTheta * cosPsi + sinPhi * sinPsi;
 ```
 
-Once you have that function implement, implement the rest of the prediction step (predict the state covariance forward) in `Predict()`.
+Next we implement the rest of the prediction step (predict the state covariance forward) in `Predict()`.  Here is the formula:
+
+![Predict Equasion](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/images/eq_Predict.jpg)
+
+Here is the code:
+
+```
+gPrime(0,3) = dt;
+gPrime(1,4) = dt;
+gPrime(2,5) = dt;
+    
+gPrime(3, 6) = (RbgPrime(0) * accel).sum() * dt;
+gPrime(4, 6) = (RbgPrime(1) * accel).sum() * dt;
+gPrime(5, 6) = (RbgPrime(2) * accel).sum() * dt;
+    
+ekfCov = gPrime * ekfCov * gPrime.transpose() + Q;
+```
 
 Note: see section 7.2 of [Estimation for Quadrotors](https://www.overleaf.com/read/vymfngphcccj) for a refresher on the the transition model and the partial derivatives.
 
