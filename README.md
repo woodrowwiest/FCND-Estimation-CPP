@@ -98,13 +98,14 @@ For the controls project, the simulator was working with a perfect set of sensor
 
 ![Standard Deviation from sample Formula from Wikipedia](https://wikimedia.org/api/rest_v1/media/math/render/svg/067067e579e43b39ca1e57d9be52bda5b80cd284)
 
-1.3 Plug in our result into the top of `config/6_Sensornoise.txt`.  Specially, set the values for `MeasuredStdDev_GPSPosXY` and `MeasuredStdDev_AccelXY` to be the values you have calculated.
+1.3 Plug in our result into the top of [`config/6_Sensornoise.txt`](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/config/06_SensorNoise.txt).  
+  - Specially, we set the values for `MeasuredStdDev_GPSPosXY` and `MeasuredStdDev_AccelXY` to our calculated values.
 
-5. Run the simulator. If your values are correct, the dashed lines in the simulation will eventually turn green, indicating you’re capturing approx 68% of the respective measurements (which is what we expect within +/- 1 sigma bound for a Gaussian noise model)
+1.4 Run the simulator. Our values are correct, the dashed lines in the simulation turn green, indicating we’re capturing approx 68% of the respective measurements (which is what we expect within +/- 1 sigma bound for a Gaussian noise model)
 
-***Success criteria:*** *Your standard deviations should accurately capture the value of approximately 68% of the respective measurements.*
+**Success!**
 
-NOTE: Your answer should match the settings in `SimulatedSensors.txt`, where you can also grab the simulated noise parameters for all the other sensors.
+NOTE: Our answer should match the settings in `SimulatedSensors.txt`, where we can also grab the simulated noise parameters for all the other sensors.
 
 
 ### 02: Attitude Estimation ###
