@@ -172,18 +172,38 @@ predictedState(5) += velAccel.z * dt;
 
 ![Predict Drift Pass](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/images/03_prediction_pass.jpg)
 
-3. Now let's introduce a realistic IMU, one with noise.  Run scenario `09_PredictionCov`. You will see a small fleet of quadcopter all using your prediction code to integrate forward. You will see two plots:
+3.3 Now let's introduce a realistic IMU, one with noise.  When we run scenario `09_PredictionCov`, we see a small fleet of quadcopter all using your prediction code to integrate forward. There are two plots:
    - The top graph shows 10 (prediction-only) position X estimates
    - The bottom graph shows 10 (prediction-only) velocity estimates
-You will notice however that the estimated covariance (white bounds) currently do not capture the growing errors.
 
-4. In `QuadEstimatorEKF.cpp`, calculate the partial derivative of the body-to-global rotation matrix in the function `GetRbgPrime()`.  Once you have that function implement, implement the rest of the prediction step (predict the state covariance forward) in `Predict()`.
+3.4 In `QuadEstimatorEKF.cpp`, we calculate the partial derivative of the body-to-global rotation matrix in the function `GetRbgPrime()`.  Here is the formula:
 
-**Hint: see section 7.2 of [Estimation for Quadrotors](https://www.overleaf.com/read/vymfngphcccj) for a refresher on the the transition model and the partial derivatives you may need**
+![GetRbgPrime Equasion](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/images/eq-getRgbPrime.jpg)
 
-**Hint: When it comes to writing the function for GetRbgPrime, make sure to triple check you've set all the correct parts of the matrix.**
+Here is the code:
 
-**Hint: recall that the control input is the acceleration!**
+```
+float cosTheta = cos(pitch);
+float sinTheta = sin(pitch);
+    
+float cosPhi = cos(roll);
+float sinPhi = sin(roll);
+    
+float sinPsi = sin(yaw);
+float cosPsi = cos(yaw);
+    
+RbgPrime(0,0) = - cosTheta * sinPsi;
+RbgPrime(0,1) = - sinPhi  * sinTheta * sinPsi - cosTheta * cosPsi;
+RbgPrime(0,2) = - cosPhi  * sinTheta * sinPsi + sinPhi   * cosPsi;
+    
+RbgPrime(1,0) = cosTheta * cosPsi;
+RbgPrime(1,1) = sinPhi  * sinTheta * cosPsi - cosPhi * sinPsi;
+RbgPrime(1,2) = cosPhi  * sinTheta * cosPsi + sinPhi * sinPsi;
+```
+
+Once you have that function implement, implement the rest of the prediction step (predict the state covariance forward) in `Predict()`.
+
+Note: see section 7.2 of [Estimation for Quadrotors](https://www.overleaf.com/read/vymfngphcccj) for a refresher on the the transition model and the partial derivatives.
 
 5. Run your covariance prediction and tune the `QPosXYStd` and the `QVelXYStd` process parameters in `QuadEstimatorEKF.txt` to try to capture the magnitude of the error you see. Note that as error grows our simplified model will not capture the real error dynamics (for example, specifically, coming from attitude errors), therefore  try to make it look reasonable only for a relatively short prediction period (the scenario is set for one second).  A good solution looks as follows:
 
