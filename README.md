@@ -69,7 +69,7 @@ This configuration tells us that the simulator is only using an IMU and the sens
 
 ## The Tasks ##
 
-We begin by building up our estimator incrementally.  At each step, there will be a set of success criteria that will be displayed both in the plots and in the terminal output to help you along the way.
+We begin by building up our estimator incrementally.  At each step, there will be a set of success criteria that will be displayed both in the plots and in the terminal output.
 
 Project outline:
 
