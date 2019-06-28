@@ -147,14 +147,30 @@ Note: see section 7.1.2 of [Estimation for Quadrotors](https://www.overleaf.com/
 
 ### 03: Prediction Step ###
 
-In this next step you will be implementing the prediction step of your filter.
+In this next step we will implement the prediction step of our filter.
 
 
-1. Run scenario `08_PredictState`.  This scenario is configured to use a perfect IMU (only an IMU). Due to the sensitivity of double-integration to attitude errors, we've made the accelerometer update very insignificant (`QuadEstimatorEKF.attitudeTau = 100`).  The plots on this simulation show element of your estimated state and that of the true state.  At the moment you should see that your estimated state does not follow the true state.
+03.1 Run scenario `08_PredictState`.  This scenario is configured to use a perfect IMU (only an IMU). Due to the sensitivity of double-integration to attitude errors, Udacity has made the accelerometer update very insignificant (`QuadEstimatorEKF.attitudeTau = 100`).  The plots on this simulation show element of our estimated state and that of the true state.
 
-2. In `QuadEstimatorEKF.cpp`, implement the state prediction step in the `PredictState()` functon. If you do it correctly, when you run scenario `08_PredictState` you should see the estimator state track the actual state, with only reasonably slow drift, as shown in the figure below:
+03.2 In `QuadEstimatorEKF.cpp`, we implement the state prediction step in the `PredictState()` functon as follows:
 
-![predict drift](images/predict-slow-drift.png)
+```
+// Position
+predictedState(0) += predictedState(3) * dt;  // x
+predictedState(1) += predictedState(4) * dt;  // y
+predictedState(2) += predictedState(5) * dt;  // z
+    
+// Velocity
+// account for earth's gavitational constant
+V3F velAccel = attitude.Rotate_BtoI(accel) - V3F(0.0, 0.0, CONST_GRAVITY);
+predictedState(3) += velAccel.x * dt;
+predictedState(4) += velAccel.y * dt;
+predictedState(5) += velAccel.z * dt;
+```
+
+**Success!** When we run scenario `08_PredictState` we see the estimator state track the actual state, with only reasonably slow drift.
+
+![Predict Drift Pass](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/images/03_prediction_pass.jpg)
 
 3. Now let's introduce a realistic IMU, one with noise.  Run scenario `09_PredictionCov`. You will see a small fleet of quadcopter all using your prediction code to integrate forward. You will see two plots:
    - The top graph shows 10 (prediction-only) position X estimates
