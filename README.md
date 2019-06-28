@@ -98,6 +98,9 @@ For the controls project, the simulator was working with a perfect set of sensor
 
 ![Standard Deviation from sample Formula from Wikipedia](https://wikimedia.org/api/rest_v1/media/math/render/svg/067067e579e43b39ca1e57d9be52bda5b80cd284)
 
+I wrote a simple script using [Python](https://www.python.org), [Pandas](https://pandas.pydata.org), and visualized it with [Matplotlib](https://matplotlib.org) like this:
+![How to parse a .csv file with Pandas and plot it with Matplotlib in Python](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/images/01.2_std_GPS_IMU.jpg)
+
 01.3 Plug in our result into the top of [`config/6_Sensornoise.txt`](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/config/06_SensorNoise.txt).  
   - Specially, we set the values for `MeasuredStdDev_GPSPosXY` and `MeasuredStdDev_AccelXY` to our calculated values.
 
