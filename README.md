@@ -290,7 +290,7 @@ Up to this point, we have been working with a controller that has been supplied 
 
 **Success!** *Complete the entire simulation cycle with estimated position error of < 1m.*
 
-![My Controller code and Parameters Passing](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/images/06_mycontrols_pass.jpg
+![My Controller code and Parameters Passing](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/images/06_mycontrols_pass.jpg)
 
 [Return To Tasks](#the-tasks) | [Return To Top](#estimation-project)
 
