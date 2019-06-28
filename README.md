@@ -8,7 +8,7 @@ This README takes on the basic form from the original project and the content is
 
  - [Setup](#setup) - the environment and code setup required to get started and a brief overview of the project structure
  - [The Tasks](#the-tasks) - the tasks you will need to complete for the project
- - [Woes and Hair-pulling](#woes-and-hair-pulling) - difficulties encounterd along the way
+ - [Woes and Deskflippings](#woes-and-Deskflippings) - difficulties encounterd along the way
  - [Submission](#submission) - overview of the requirements for your project submission
  - [Acknowledgements](#Acknowledgements)
 
