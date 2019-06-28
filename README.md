@@ -1,6 +1,10 @@
 # Estimation Project #
 
-Welcome to the estimation project.  In this project, you will be developing the estimation portion of the controller used in the CPP simulator.  By the end of the project, your simulated quad will be flying with your estimator and your custom controller (from the previous project)!
+Woodrow Wiest
+28 June, 2019
+Göteborg, Sweden
+
+Welcome to my variation of the estimation project.  In this project, we are tasked to develop the estimation portion of the controller used in the CPP simulator.  The final result, our simulated quad will be flying with the estimator and custom controller from the previous project: [FCND-Controls-CPP](https://github.com/woodrowwiest/FCND-Controls-CPP)  
 
 This README is broken down into the following sections:
 
@@ -8,6 +12,7 @@ This README is broken down into the following sections:
  - [The Tasks](#the-tasks) - the tasks you will need to complete for the project
  - [Tips and Tricks](#tips-and-tricks) - some additional tips and tricks you may find useful along the way
  - [Submission](#submission) - overview of the requirements for your project submission
+ - [Acknowledgements](#acknowlodgements)
 
 
 ## Setup ##
@@ -237,6 +242,6 @@ For this project, you will need to submit:
 
  - a write up addressing all the points of the rubric
 
-## Authors ##
+## Acknowledgements ##
 
-Thanks to Fotokite for the initial development of the project code and simulator.
+Thanks to Fotokite for the initial development of the project code and simulator, and thanks [Udacity](https://www.udacity.com/) for the riveting course.
