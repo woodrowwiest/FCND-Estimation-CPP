@@ -232,23 +232,30 @@ Looking at this result, we can see that in the first part of the plot, our covar
 
 ### 04: Magnetometer Update ###
 
-Up until now we've only used the accelerometer and gyro for our state estimation.  In this step, you will be adding the information from the magnetometer to improve your filter's performance in estimating the vehicle's heading.
+Up until now we've only used the accelerometer and gyro for our state estimation.  In this step, we add the information from the magnetometer to improve our filter's performance in estimating the vehicle's heading.
 
-1. Run scenario `10_MagUpdate`.  This scenario uses a realistic IMU, but the magnetometer update hasn’t been implemented yet. As a result, you will notice that the estimate yaw is drifting away from the real value (and the estimated standard deviation is also increasing).  Note that in this case the plot is showing you the estimated yaw error (`quad.est.e.yaw`), which is drifting away from zero as the simulation runs.  You should also see the estimated standard deviation of that state (white boundary) is also increasing.
+04.1 Run scenario `10_MagUpdate`.  This scenario uses a realistic simulated IMU.
 
-2. Tune the parameter `QYawStd` (`QuadEstimatorEKF.txt`) for the QuadEstimatorEKF so that it approximately captures the magnitude of the drift, as demonstrated here:
+04.2 We tune up the parameter `QYawStd` in `QuadEstimatorEKF.txt` for the QuadEstimatorEKF so that it approximately captures the magnitude of the drift.
 
-![mag drift](images/mag-drift.png)
+04.3 Implement magnetometer update in the function `UpdateFromMag()` like this:
 
-3. Implement magnetometer update in the function `UpdateFromMag()`.  Once completed, you should see a resulting plot similar to this one:
+```
+zFromX(0) = ekfState(6);    // estimate yaw
+float d = z(0) - zFromX(0); // short way around circle
+if (d < -F_PI)
+    z(0) += 2.f * F_PI;
+if (d > F_PI)
+    z(0) -= 2.f * F_PI;
+    
+hPrime(0, 6) = 1;
+```
 
-![mag good](images/mag-good-solution.png)
+**Success!** *has an estimated standard deviation that accurately captures the error and maintain an error of less than 0.1rad in heading for at least 10 seconds of the simulation.*
 
-***Success criteria:*** *Your goal is to both have an estimated standard deviation that accurately captures the error and maintain an error of less than 0.1rad in heading for at least 10 seconds of the simulation.*
+![04_magUpdate_pass](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/images/04_mag_update_pass.jpg)
 
-**Hint: after implementing the magnetometer update, you may have to once again tune the parameter `QYawStd` to better balance between the long term drift and short-time noise from the magnetometer.**
-
-**Hint: see section 7.3.2 of [Estimation for Quadrotors](https://www.overleaf.com/read/vymfngphcccj) for a refresher on the magnetometer update.**
+Note: see section 7.3.2 of [Estimation for Quadrotors](https://www.overleaf.com/read/vymfngphcccj) for a refresher on the magnetometer update.
 
 
 ### 05: Closed Loop + GPS Update ###
