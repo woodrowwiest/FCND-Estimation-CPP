@@ -12,7 +12,7 @@ This README is broken down into the following sections:
  - [The Tasks](#the-tasks) - the tasks you will need to complete for the project
  - [Tips and Tricks](#tips-and-tricks) - some additional tips and tricks you may find useful along the way
  - [Submission](#submission) - overview of the requirements for your project submission
- - [Acknowledgements](#acknowlodgements)
+ - [Acknowledgements](#Acknowledgements)
 
 
 ## Setup ##
@@ -244,4 +244,6 @@ For this project, you will need to submit:
 
 ## Acknowledgements ##
 
-Thanks to Fotokite for the initial development of the project code and simulator, and thanks [Udacity](https://www.udacity.com/) for the riveting course.
+Thanks:
+ - to Fotokite for the initial development of the project code and simulator.
+ - to [Udacity](https://www.udacity.com/) for the riveting course.  I'll look past the headaches this time ;)
