@@ -8,7 +8,7 @@ This README takes on the basic form from the original project and the content is
 
  - [Setup](#setup) - the environment and code setup required to get started and a brief overview of the project structure
  - [The Tasks](#the-tasks) - the tasks you will need to complete for the project
- - [Tips and Tricks](#tips-and-tricks) - some additional tips and tricks you may find useful along the way
+ - [Woes and Hair-pulling](#woes-and-hair-pulling) - difficulties encounterd along the way
  - [Submission](#submission) - overview of the requirements for your project submission
  - [Acknowledgements](#Acknowledgements)
 
@@ -282,7 +282,7 @@ Note: see section 7.3.1 of [Estimation for Quadrotors](https://www.overleaf.com/
 
 ### 06: Adding Your Controller ###
 
-Up to this point, we have been working with a controller that has been supplied by Udacity and relaxed to work with an estimated state instead of a real state.  Now is the point where the stress levels rize and we see how well our controller performs and de-tune our controller accordingly. *sigh*
+Up to this point, we have been working with a controller that has been supplied by Udacity and relaxed to work with an estimated state instead of a real state.  Now is the point where the stress levels rise and we see how well our controller performs and de-tune our controller accordingly. *sigh*
 
 06.1 Replace `QuadController.cpp` with the controller we wrote in the last project.
 
@@ -310,8 +310,18 @@ For this project, we submit the following files:
  - a write up addressing all the points of the rubric
    - This [README](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/README.md)
 
+
+## Woes and Deskflippings ##
+
+All of these projects were difficult, but this project definitely wins the award for most difficult for me.  I not only had to learn a working competency reading and writing Python and C++, learn to use Git, I needed to brush up on Trigonometry, learn Linear Algebra, Calculous, and Probability Theory/Statistics.  I found I was completely underprepared for this course, but with surprise and a clear schedule for fifteen weeks, I was able to satisfactorily complete all of the required lessons and projects in a relatively timely manner.
+
+I was really holding my breath when we brought in our control code and tuning parameters from the last project.  Much to my surprize the code works great with this project, and no de-tuning of my controller was neccessary!  Incredible.
+
+This course has taught me many things, but most of all it gives me a view into my shortcomings and raises my awareness to the areas I can improve my skills.  I look forward to revisiting all of these projects to hone my skills and move forward.
+
 ## Acknowledgements ##
 
 Thanks:
+ - to [Khan Academy](https://www.khanacademy.org) for actually teaching me the math and physics that we were supposed to know for these projects. 
  - to Fotokite for the initial development of the project code and simulator.
- - to [Udacity](https://www.udacity.com/) for the riveting course.  I'll look past the headaches this time ;)
+ - to [Udacity](https://www.udacity.com/) for putting together this riveting course.  I'll look past the headaches this time... ;)
