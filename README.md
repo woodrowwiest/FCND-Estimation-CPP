@@ -1,8 +1,6 @@
 # Estimation Project #
 
-Woodrow Wiest
-28 June, 2019
-Göteborg, Sweden
+Woodrow Wiest - 28 June, 2019 - Göteborg, Sweden
 
 Welcome to my variation of the estimation project.  In this project, we are tasked to develop the estimation portion of the controller used in the CPP simulator.  The final result, our simulated quad will be flying with the estimator and custom controller from the previous project: [FCND-Controls-CPP](https://github.com/woodrowwiest/FCND-Controls-CPP)  
 
