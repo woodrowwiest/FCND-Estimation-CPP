@@ -77,7 +77,7 @@ Project outline:
  - [02: Attitude Estimation](#02-attitude-estimation)
  - [03: Prediction Step](#03-prediction-step)
  - [04: Magnetometer Update](#04-magnetometer-update)
- - [55: Closed Loop + GPS Update](#05-closed-loop--gps-update)
+ - [05: Closed Loop + GPS Update](#05-closed-loop--gps-update)
  - [06: Adding Your Controller](#06-adding-your-controller)
 
 
@@ -86,24 +86,25 @@ Project outline:
 
 For the controls project, the simulator was working with a perfect set of sensors, meaning none of the sensors had any noise.  Unfortunately the real world is inconsistent and noisy.  For our simulation to be more consistent with the real world, we add simulated noise to the quad's sensors.  For the first step, we collect this simulated noisy sensor data and calculate the standard deviation of the quad's sensors.
 
-1.0 Run the simulator
+01.0 Run the simulator
 
-1.1 Choose scenario `06_NoisySensors`.
+01.1 Choose scenario `06_NoisySensors`.
   - The quad does not move.
   - The two plots give us a visual of the for GPS X position and the accelerometer's x measurement data.  The dashed lines are a visualization of a single standard deviation from 0 for each signal. 
   - The standard deviations were initially set to arbitrary values. If they were set correctly, we should see ~68% of the measurement points fall into the +/- 1 sigma bound.  
   - When we run this scenario, the graph data will be recorded to the following csv files with headers: `config/log/Graph1.txt` (GPS X data) and `config/log/Graph2.txt` (Accelerometer X data).
 
-1.2 Process the logged files to figure out the standard deviation of the the GPS X signal and the IMU Accelerometer X signal.  This can be accomplished by creating a python script to parse the files, using a program like Matlab, plug the data into a spreadsheet, or calculate it by hand. Either way, here is the formula for standard deviation of a sample:
+01.2 Process the logged files to figure out the standard deviation of the the GPS X signal and the IMU Accelerometer X signal.  This can be accomplished by creating a python script to parse the files, using a program like Matlab, plug the data into a spreadsheet, or calculate it by hand. Either way, here is the formula for standard deviation of a sample:
 
 ![Standard Deviation from sample Formula from Wikipedia](https://wikimedia.org/api/rest_v1/media/math/render/svg/067067e579e43b39ca1e57d9be52bda5b80cd284)
 
-1.3 Plug in our result into the top of [`config/6_Sensornoise.txt`](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/config/06_SensorNoise.txt).  
+01.3 Plug in our result into the top of [`config/6_Sensornoise.txt`](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/config/06_SensorNoise.txt).  
   - Specially, we set the values for `MeasuredStdDev_GPSPosXY` and `MeasuredStdDev_AccelXY` to our calculated values.
 
-1.4 Run the simulator. Our values are correct, the dashed lines in the simulation turn green, indicating we’re capturing approx 68% of the respective measurements (which is what we expect within +/- 1 sigma bound for a Gaussian noise model)
+01.4 Run the simulator. Our values are correct, the dashed lines in the simulation turn green, indicating we’re capturing approx 68% of the respective measurements (which is what we expect within +/- 1 sigma bound for a Gaussian noise model)
 
 **Success!**
+![Passing Sensor Noise](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/images/01.4_sensor_noise_pass.jpg)
 
 NOTE: Our answer should match the settings in `SimulatedSensors.txt`, where we can also grab the simulated noise parameters for all the other sensors.
 
