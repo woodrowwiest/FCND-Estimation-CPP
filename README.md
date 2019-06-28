@@ -66,7 +66,7 @@ Project outline:
  - [03: Prediction Step](#03-prediction-step)
  - [04: Magnetometer Update](#04-magnetometer-update)
  - [05: Closed Loop + GPS Update](#05-closed-loop--gps-update)
- - [06: Adding Your Controller](#06-adding-your-controller)
+ - [06: Adding Our Controller](#06-adding-our-controller)
 
 
 
@@ -278,7 +278,7 @@ Note: see section 7.3.1 of [Estimation for Quadrotors](https://www.overleaf.com/
 [Return To Tasks](#the-tasks) | [Return To Top](#estimation-project)
 
 
-### 06: Adding Your Controller ###
+### 06: Adding Our Controller ###
 
 Up to this point, we have been working with a controller that has been supplied by Udacity and relaxed to work with an estimated state instead of a real state.  Now is the point where the stress levels rise and we see how well our controller performs and de-tune our controller accordingly. *sigh*
 
