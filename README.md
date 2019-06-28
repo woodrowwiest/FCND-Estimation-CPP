@@ -22,7 +22,7 @@ This project will continue to use the C++ development environment you set up in 
  git clone https://github.com/udacity/FCND-Estimation-CPP.git
  ```
 
- 2. Import the code into our IDE like done in the [Controls C++ project](https://github.com/udacity/FCND-Controls-CPP#development-environment-setup). I will be using Xcode.
+ 2. Import the code into our IDE like done in the [Controls C++ project](https://github.com/udacity/FCND-Controls-CPP#development-environment-setup). I am using Xcode.
  
  3. We should now be able to compile and run the estimation simulator.
 
@@ -48,7 +48,7 @@ For this project, we will be primarily interacting with the following files:
 
 #### `config` Directory ####
 
-In the `config` directory, in addition to finding the configuration files for our controller and estimator, we also see configuration files for each of the simulations.  For this project, we work with simulations 06 through 11.
+In the [`config`](https://github.com/woodrowwiest/FCND-Estimation-CPP/tree/master/config) directory, in addition to finding the configuration files for our controller and estimator, we also see configuration files for each of the simulations.  For this project, we work with simulations 06 through 11.
 
 
 
@@ -64,12 +64,12 @@ SimIMU.AccelStd = 0,0,0
 SimIMU.GyroStd = 0,0,0
 ```
 
-This configuration tells us that the simulator is only using an IMU and the sensor data will have no noise.  You will notice that for each simulator these parameters will change slightly as additional sensors are being used and the noise behavior of the sensors change.
+This configuration tells us that the simulator is only using an IMU and the sensor data will have no noise.  You will notice that for each simulator these parameters change slightly as additional sensors are being used and the noise behavior of the sensors change.
 
 
 ## The Tasks ##
 
-Once again, you will be building up your estimator in pieces.  At each step, there will be a set of success criteria that will be displayed both in the plots and in the terminal output to help you along the way.
+We begin by building up our estimator incrementally.  At each step, there will be a set of success criteria that will be displayed both in the plots and in the terminal output to help you along the way.
 
 Project outline:
 
