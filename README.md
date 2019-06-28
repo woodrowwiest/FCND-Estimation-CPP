@@ -84,15 +84,21 @@ Project outline:
 
 ### 01: Sensor Noise ###
 
-For the controls project, the simulator was working with a perfect set of sensors, meaning none of the sensors had any noise.  The first step to adding additional realism to the problem, and developing an estimator, is adding noise to the quad's sensors.  For the first step, you will collect some simulated noisy sensor data and estimate the standard deviation of the quad's sensor.
+For the controls project, the simulator was working with a perfect set of sensors, meaning none of the sensors had any noise.  Unfortunately the real world is inconsistent and noisy.  For our simulation to be more consistent with the real world, we add simulated noise to the quad's sensors.  For the first step, we collect this simulated noisy sensor data and calculate the standard deviation of the quad's sensors.
 
-1. Run the simulator in the same way as you have before
+1.0 Run the simulator
 
-2. Choose scenario `06_NoisySensors`.  In this simulation, the interest is to record some sensor data on a static quad, so you will not see the quad move.  You will see two plots at the bottom, one for GPS X position and one for The accelerometer's x measurement.  The dashed lines are a visualization of a single standard deviation from 0 for each signal. The standard deviations are initially set to arbitrary values (after processing the data in the next step, you will be adjusting these values).  If they were set correctly, we should see ~68% of the measurement points fall into the +/- 1 sigma bound.  When you run this scenario, the graphs you see will be recorded to the following csv files with headers: `config/log/Graph1.txt` (GPS X data) and `config/log/Graph2.txt` (Accelerometer X data).
+1.1 Choose scenario `06_NoisySensors`.
+  - The quad does not move.
+  - The two plots give us a visual of the for GPS X position and the accelerometer's x measurement data.  The dashed lines are a visualization of a single standard deviation from 0 for each signal. 
+  - The standard deviations were initially set to arbitrary values. If they were set correctly, we should see ~68% of the measurement points fall into the +/- 1 sigma bound.  
+  - When we run this scenario, the graph data will be recorded to the following csv files with headers: `config/log/Graph1.txt` (GPS X data) and `config/log/Graph2.txt` (Accelerometer X data).
 
-3. Process the logged files to figure out the standard deviation of the the GPS X signal and the IMU Accelerometer X signal.
+1.2 Process the logged files to figure out the standard deviation of the the GPS X signal and the IMU Accelerometer X signal.  This can be accomplished by creating a python script to parse the files, using a program like Matlab, plug the data into a spreadsheet, or calculate it by hand. Either way, here is the formula for standard deviation of a sample:
 
-4. Plug in your result into the top of `config/6_Sensornoise.txt`.  Specially, set the values for `MeasuredStdDev_GPSPosXY` and `MeasuredStdDev_AccelXY` to be the values you have calculated.
+![Standard Deviation from sample Formula from Wikipedia](https://wikimedia.org/api/rest_v1/media/math/render/svg/067067e579e43b39ca1e57d9be52bda5b80cd284)
+
+1.3 Plug in our result into the top of `config/6_Sensornoise.txt`.  Specially, set the values for `MeasuredStdDev_GPSPosXY` and `MeasuredStdDev_AccelXY` to be the values you have calculated.
 
 5. Run the simulator. If your values are correct, the dashed lines in the simulation will eventually turn green, indicating you’re capturing approx 68% of the respective measurements (which is what we expect within +/- 1 sigma bound for a Gaussian noise model)
 
