@@ -10,6 +10,7 @@ This README takes on the basic form from the original project and the content is
  - [The Tasks](#the-tasks) - the tasks you will need to complete for the project
  - [Woes and Deskflippings](#woes-and-Deskflippings) - difficulties encounterd along the way
  - [Submission](#submission) - overview and links of our project submission
+ - [Useful Resources](#useful-resources)
  - [Acknowledgements](#Acknowledgements)
 
 
@@ -323,10 +324,10 @@ This course has taught me many things, but most of all it gives me a view into m
 
 ## Useful Resources ##
 
-[Estimation for Quadrotors](https://www.overleaf.com/read/vymfngphcccj)
-[The Unscented Kalman Filter for Nonlinear Estimation](https://www.seas.harvard.edu/courses/cs281/papers/unscented.pdf)
-[A New Extension of the Kalman Filter to Nonlinear Systems](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.5.2891&rep=rep1&type=pdf)
-[The Scaled Unscented Transformation](https://www.cs.unc.edu/~welch/kalman/media/pdf/ACC02-IEEE1357.PDF)
+ - [Estimation for Quadrotors](https://www.overleaf.com/read/vymfngphcccj)
+ - [The Unscented Kalman Filter for Nonlinear Estimation](https://www.seas.harvard.edu/courses/cs281/papers/unscented.pdf)
+ - [A New Extension of the Kalman Filter to Nonlinear Systems](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.5.2891&rep=rep1&type=pdf)
+ - [The Scaled Unscented Transformation](https://www.cs.unc.edu/~welch/kalman/media/pdf/ACC02-IEEE1357.PDF)
 
 
 ## Acknowledgements ##
