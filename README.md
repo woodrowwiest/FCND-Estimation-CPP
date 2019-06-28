@@ -6,7 +6,7 @@ Göteborg, Sweden
 
 Welcome to my variation of the estimation project.  In this project, we are tasked to develop the estimation portion of the controller used in the CPP simulator.  The final result, our simulated quad will be flying with the estimator and custom controller from the previous project: [FCND-Controls-CPP](https://github.com/woodrowwiest/FCND-Controls-CPP)  
 
-This README is broken down into the following sections:
+This README takes on the basic form from the original project and the content is as follows:
 
  - [Setup](#setup) - the environment and code setup required to get started and a brief overview of the project structure
  - [The Tasks](#the-tasks) - the tasks you will need to complete for the project
@@ -24,20 +24,20 @@ This project will continue to use the C++ development environment you set up in 
  git clone https://github.com/udacity/FCND-Estimation-CPP.git
  ```
 
- 2. Import the code into your IDE like done in the [Controls C++ project](https://github.com/udacity/FCND-Controls-CPP#development-environment-setup)
+ 2. Import the code into our IDE like done in the [Controls C++ project](https://github.com/udacity/FCND-Controls-CPP#development-environment-setup). I will be using Xcode.
  
- 3. You should now be able to compile and run the estimation simulator just as you did in the controls project
+ 3. We should now be able to compile and run the estimation simulator.
 
 
 ### Project Structure ###
 
-For this project, you will be interacting with a few more files than before.
+For this project, we will be primarily interacting with the following files:
 
- - The EKF is already partially implemented for you in `QuadEstimatorEKF.cpp`
+ - The EKF `QuadEstimatorEKF.cpp` which is already partially implemented for us. 
 
- - Parameters for tuning the EKF are in the parameter file `QuadEstimatorEKF.txt`
+ - Parameters for tuning the EKF `QuadEstimatorEKF.txt`
 
- - When you turn on various sensors (the scenarios configure them, e.g. `Quad.Sensors += SimIMU, SimMag, SimGPS`), additional sensor plots will become available to see what the simulated sensors measure.
+ - When we turn on various sensors (the scenarios configure them, e.g. `Quad.Sensors += SimIMU, SimMag, SimGPS`), additional sensor plots will become available to see what the simulated sensors measure.
 
  - The EKF implementation exposes both the estimated state and a number of additional variables. In particular:
 
@@ -45,12 +45,16 @@ For this project, you will be interacting with a few more files than before.
 
    - `Quad.Est.S.X` is the estimated standard deviation of the X state (that is, the square root of the appropriate diagonal variable in the covariance matrix). More generally, the variables in `<vehicle>.Est.S.*` are standard deviations calculated from the estimator state covariance matrix.
 
-   - `Quad.Est.D` contains miscellaneous additional debug variables useful in diagnosing the filter. You may or might not find these useful but they were helpful to us in verifying the filter and may give you some ideas if you hit a block.
+   - `Quad.Est.D` contains miscellaneous additional debug variables useful in diagnosing the filter. We may or might not find these useful but they were helpful to us in verifying the filter and may give us some ideas if we hit a block.
 
 
 #### `config` Directory ####
 
-In the `config` directory, in addition to finding the configuration files for your controller and your estimator, you will also see configuration files for each of the simulations.  For this project, you will be working with simulations 06 through 11 and you may find it insightful to take a look at the configuration for the simulation.
+In the `config` directory, in addition to finding the configuration files for our controller and estimator, we also see configuration files for each of the simulations.  For this project, we work with simulations 06 through 11.
+
+
+
+and you may find it insightful to take a look at the configuration for the simulation.
 
 As an example, if we look through the configuration file for scenario 07, we see the following parameters controlling the sensor:
 
@@ -71,16 +75,16 @@ Once again, you will be building up your estimator in pieces.  At each step, the
 
 Project outline:
 
- - [Step 1: Sensor Noise](#step-1-sensor-noise)
- - [Step 2: Attitude Estimation](#step-2-attitude-estimation)
- - [Step 3: Prediction Step](#step-3-prediction-step)
- - [Step 4: Magnetometer Update](#step-4-magnetometer-update)
- - [Step 5: Closed Loop + GPS Update](#step-5-closed-loop--gps-update)
- - [Step 6: Adding Your Controller](#step-6-adding-your-controller)
+ - [01: Sensor Noise](#01-sensor-noise)
+ - [02: Attitude Estimation](#02-attitude-estimation)
+ - [03: Prediction Step](#03-prediction-step)
+ - [04: Magnetometer Update](#04-magnetometer-update)
+ - [55: Closed Loop + GPS Update](#05-closed-loop--gps-update)
+ - [06: Adding Your Controller](#06-adding-your-controller)
 
 
 
-### Step 1: Sensor Noise ###
+### 01: Sensor Noise ###
 
 For the controls project, the simulator was working with a perfect set of sensors, meaning none of the sensors had any noise.  The first step to adding additional realism to the problem, and developing an estimator, is adding noise to the quad's sensors.  For the first step, you will collect some simulated noisy sensor data and estimate the standard deviation of the quad's sensor.
 
@@ -99,7 +103,7 @@ For the controls project, the simulator was working with a perfect set of sensor
 NOTE: Your answer should match the settings in `SimulatedSensors.txt`, where you can also grab the simulated noise parameters for all the other sensors.
 
 
-### Step 2: Attitude Estimation ###
+### 02: Attitude Estimation ###
 
 Now let's look at the first step to our state estimation: including information from our IMU.  In this step, you will be improving the complementary filter-type attitude filter with a better rate gyro attitude integration scheme.
 
@@ -119,7 +123,7 @@ In the screenshot above the attitude estimation using linear scheme (left) and u
 **Hint: see section 7.1.2 of [Estimation for Quadrotors](https://www.overleaf.com/read/vymfngphcccj) for a refresher on a good non-linear complimentary filter for attitude using quaternions.**
 
 
-### Step 3: Prediction Step ###
+### 03: Prediction Step ###
 
 In this next step you will be implementing the prediction step of your filter.
 
@@ -162,7 +166,7 @@ Another set of bad examples is shown below for having a `QVelXYStd` too large (f
 ***Success criteria:*** *This step doesn't have any specific measurable criteria being checked.*
 
 
-### Step 4: Magnetometer Update ###
+### 04: Magnetometer Update ###
 
 Up until now we've only used the accelerometer and gyro for our state estimation.  In this step, you will be adding the information from the magnetometer to improve your filter's performance in estimating the vehicle's heading.
 
@@ -183,7 +187,7 @@ Up until now we've only used the accelerometer and gyro for our state estimation
 **Hint: see section 7.3.2 of [Estimation for Quadrotors](https://www.overleaf.com/read/vymfngphcccj) for a refresher on the magnetometer update.**
 
 
-### Step 5: Closed Loop + GPS Update ###
+### 05: Closed Loop + GPS Update ###
 
 1. Run scenario `11_GPSUpdate`.  At the moment this scenario is using both an ideal estimator and and ideal IMU.  Even with these ideal elements, watch the position and velocity errors (bottom right). As you see they are drifting away, since GPS update is not yet implemented.
 
@@ -207,7 +211,7 @@ Up until now we've only used the accelerometer and gyro for our state estimation
 
 At this point, congratulations on having a working estimator!
 
-### Step 6: Adding Your Controller ###
+### 06: Adding Your Controller ###
 
 Up to this point, we have been working with a controller that has been relaxed to work with an estimated state instead of a real state.  So now, you will see how well your controller performs and de-tune your controller accordingly.
 
@@ -230,17 +234,18 @@ Up to this point, we have been working with a controller that has been relaxed t
 
 ## Submission ##
 
-For this project, you will need to submit:
+For this project, we submit the following files:
 
  - a completed estimator that meets the performance criteria for each of the steps by submitting:
-   - `QuadEstimatorEKF.cpp`
-   - `config/QuadEstimatorEKF.txt`
+   - [`QuadEstimatorEKF.cpp`](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/src/QuadEstimatorEKF.cpp)
+   - [`config/QuadEstimatorEKF.txt`](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/config/QuadEstimatorEKF.txt)
 
  - a re-tuned controller that, in conjunction with your tuned estimator, is capable of meeting the criteria laid out in Step 6 by submitting:
-   - `QuadController.cpp`
-   - `config/QuadControlParams.txt`
+   - [`QuadControll.cpp`](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/src/QuadControl.cpp)
+   - [`config/QuadControlParams.txt`](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/config/QuadControlParams.txt)
 
  - a write up addressing all the points of the rubric
+   - This [README](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/README.md)
 
 ## Acknowledgements ##
 
