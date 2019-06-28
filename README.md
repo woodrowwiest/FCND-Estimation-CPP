@@ -47,28 +47,10 @@ For this project, we will be primarily interacting with the following files:
 
    - `Quad.Est.D` contains miscellaneous additional debug variables useful in diagnosing the filter. We may or might not find these useful but they were helpful to us in verifying the filter and may give us some ideas if we hit a block.
 
-[Return To Top](#estimation-project)
-
 
 #### `config` Directory ####
 
 In the [`config`](https://github.com/woodrowwiest/FCND-Estimation-CPP/tree/master/config) directory, in addition to finding the configuration files for our controller and estimator, we also see configuration files for each of the simulations.  For this project, we work with simulations 06 through 11.
-
-
-
-and you may find it insightful to take a look at the configuration for the simulation.
-
-As an example, if we look through the configuration file for scenario 07, we see the following parameters controlling the sensor:
-
-```
-# Sensors
-Quad.Sensors = SimIMU
-# use a perfect IMU
-SimIMU.AccelStd = 0,0,0
-SimIMU.GyroStd = 0,0,0
-```
-
-This configuration tells us that the simulator is only using an IMU and the sensor data will have no noise.  You will notice that for each simulator these parameters change slightly as additional sensors are being used and the noise behavior of the sensors change.
 
 [Return To Top](#estimation-project)
 
