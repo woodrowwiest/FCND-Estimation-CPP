@@ -9,7 +9,7 @@ This README takes on the basic form from the original project and the content is
  - [Setup](#setup) - the environment and code setup required to get started and a brief overview of the project structure
  - [The Tasks](#the-tasks) - the tasks you will need to complete for the project
  - [Woes and Deskflippings](#woes-and-Deskflippings) - difficulties encounterd along the way
- - [Submission](#submission) - overview of the requirements for your project submission
+ - [Submission](#submission) - overview and links of our project submission
  - [Acknowledgements](#Acknowledgements)
 
 
@@ -25,6 +25,8 @@ This project will continue to use the C++ development environment you set up in 
  2. Import the code into our IDE like done in the [Controls C++ project](https://github.com/udacity/FCND-Controls-CPP#development-environment-setup). I am using Xcode.
  
  3. We should now be able to compile and run the estimation simulator.
+
+[Return To Top](#estimation-project)
 
 
 ### Project Structure ###
@@ -44,6 +46,8 @@ For this project, we will be primarily interacting with the following files:
    - `Quad.Est.S.X` is the estimated standard deviation of the X state (that is, the square root of the appropriate diagonal variable in the covariance matrix). More generally, the variables in `<vehicle>.Est.S.*` are standard deviations calculated from the estimator state covariance matrix.
 
    - `Quad.Est.D` contains miscellaneous additional debug variables useful in diagnosing the filter. We may or might not find these useful but they were helpful to us in verifying the filter and may give us some ideas if we hit a block.
+
+[Return To Top](#estimation-project)
 
 
 #### `config` Directory ####
@@ -65,6 +69,8 @@ SimIMU.GyroStd = 0,0,0
 ```
 
 This configuration tells us that the simulator is only using an IMU and the sensor data will have no noise.  You will notice that for each simulator these parameters change slightly as additional sensors are being used and the noise behavior of the sensors change.
+
+[Return To Top](#estimation-project)
 
 
 ## The Tasks ##
@@ -111,6 +117,8 @@ I wrote a simple script using [Python](https://www.python.org), [Pandas](https:/
 
 NOTE: Our answer should match the settings in `SimulatedSensors.txt`, where we can also grab the simulated noise parameters for all the other sensors.
 
+[Return To Tasks](#the-tasks) | [Return To Top](#estimation-project)
+
 
 ### 02: Attitude Estimation ###
 
@@ -143,6 +151,8 @@ if (ekfState(6) < -F_PI) ekfState(6) += 2.f * F_PI;
 ![Passing Attitude Estimation](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/images/02_attitude_pass.jpg)
 
 Note: see section 7.1.2 of [Estimation for Quadrotors](https://www.overleaf.com/read/vymfngphcccj) for a refresher on a good non-linear complimentary filter for attitude using quaternions.
+
+[Return To Tasks](#the-tasks) | [Return To Top](#estimation-project)
 
 
 ### 03: Prediction Step ###
@@ -229,6 +239,8 @@ Looking at this result, we can see that in the first part of the plot, our covar
 
 **Success!** *This step doesn't have any specific measurable criteria being checked.*
 
+[Return To Tasks](#the-tasks) | [Return To Top](#estimation-project)
+
 
 ### 04: Magnetometer Update ###
 
@@ -257,6 +269,8 @@ hPrime(0, 6) = 1;
 
 Note: see section 7.3.2 of [Estimation for Quadrotors](https://www.overleaf.com/read/vymfngphcccj) for a refresher on the magnetometer update.
 
+[Return To Tasks](#the-tasks) | [Return To Top](#estimation-project)
+
 
 ### 05: Closed Loop + GPS Update ###
 
@@ -279,6 +293,8 @@ for (int i = 0; i < 6; i++) {
 
 Note: see section 7.3.1 of [Estimation for Quadrotors](https://www.overleaf.com/read/vymfngphcccj) for a refresher on the GPS update.
 
+[Return To Tasks](#the-tasks) | [Return To Top](#estimation-project)
+
 
 ### 06: Adding Your Controller ###
 
@@ -293,6 +309,8 @@ Up to this point, we have been working with a controller that has been supplied 
 **Success!** *Complete the entire simulation cycle with estimated position error of < 1m.*
 
 ![My Controller code and Parameters Passing](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/images/06_mycontrols_pass.jpg
+
+[Return To Tasks](#the-tasks) | [Return To Top](#estimation-project)
 
 
 ## Submission ##
@@ -310,6 +328,8 @@ For this project, we submit the following files:
  - a write up addressing all the points of the rubric
    - This [README](https://github.com/woodrowwiest/FCND-Estimation-CPP/blob/master/README.md)
 
+[Return To Top](#estimation-project)
+
 
 ## Woes and Deskflippings ##
 
@@ -325,3 +345,6 @@ Thanks:
  - to [Khan Academy](https://www.khanacademy.org) for actually teaching me the math and physics that we were supposed to know for these projects. 
  - to Fotokite for the initial development of the project code and simulator.
  - to [Udacity](https://www.udacity.com/) for putting together this riveting course.  I'll look past the headaches this time... ;)
+
+[Return To Top](#estimation-project)
+
