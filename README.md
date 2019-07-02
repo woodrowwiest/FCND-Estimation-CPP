@@ -316,7 +316,7 @@ For this project, we submit the following files:
 
 ## Woes and Deskflippings ##
 
-All of these projects were difficult, but this project definitely wins the award for most difficult for me.  I not only had to learn a working competency reading and writing Python and C++, learn to use Git, I needed to brush up on Trigonometry, learn Linear Algebra, Calculous, and Probability Theory/Statistics.  I found I was completely underprepared for this course, but with surprise and a clear schedule for fifteen weeks, I was able to satisfactorily complete all of the required lessons and projects in a relatively timely manner.
+All of these projects were difficult, but this project definitely wins the award for most difficult for me.  I not only had to learn a working competency reading and writing Python and C++, learn to use Git, I needed to brush up on Trigonometry, learn Linear Algebra, Calculous, and Probability Theory/Statistics.  I found I was completely underprepared for this course, but with some grit and a clear schedule for fifteen weeks, I was able to satisfactorily complete all of the required lessons and projects in a relatively timely manner.
 
 I was really holding my breath when we brought in our control code and tuning parameters from the last project.  Much to my surprize the code works great with this project, and no de-tuning of my controller was neccessary!  Incredible.
 
